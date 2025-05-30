@@ -1,6 +1,59 @@
-#heading {
-  background-color: brown;
-  color: white;
-  padding: 20px;
-  font-size: 24px;
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background-color: #f8f8f8;
+}
+
+.swiggy-logo-container {
+  width: 120px;
+}
+
+.swiggy-logo {
+  width: 50px;
+  height: auto;
+  border-radius: 75px;
+}
+
+.header-side-list-container {
+  display: flex;
+  gap: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-left: 70px;
+}
+.cardContainer {
+  border: 1px solid black;
+  border-radius: 14px;
+  padding: 15px;
+}
+.cardContainer:hover {
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transition: 0.2s ease;
+}
+.card-img {
+  width: 330px;
+}
+
+.filter-button {
+  margin-left: 60px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border-style: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+.filter-button:hover {
+  border: 1px solid black;
 }
