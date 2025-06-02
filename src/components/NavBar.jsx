@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const NavBar = () => {
+  const [btnName, setBtnName] = useState("Login");
+
   return (
     <div className="header-container">
       <div className="swiggy-logo-container">
@@ -15,6 +17,17 @@ const NavBar = () => {
         <h2>Cart</h2>
         <h2>Offers</h2>
         <h2>Cart</h2>
+      </div>
+      <div>
+        <button
+          className="loginBtn"
+          onClick={() => {
+            setBtnName("LogOut");
+            console.log("Btn : ", btnName);
+          }}
+        >
+          {btnName}
+        </button>
       </div>
     </div>
   );

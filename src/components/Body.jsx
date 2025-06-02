@@ -18,31 +18,34 @@ const Body = () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9615398&lng=79.2961468&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
+
     const jsonData = await data.json();
-    // console.log(jsonData);
-    // console.log(
-    //   jsonData.data.cards[2].card.card.gridElements.infoWithStyle.restaurants
-    // );
+
     let json =
       jsonData?.data.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
-    // console.log(
-    //   json.map((data) => {
-    //     console.log(data.info.name);
-    //     console.log(data.info.id);
-    //     console.log(data.info.avgRating);
-    //     console.log(data.info.cuisines);
-    //     console.log(data.info.cloudinaryImageId);
-    //   })
-    // );
+
     setListOfRestaurant(json);
+
+    // if (restaurantData.length === 0) {
+    //   console.log("Restaurant Data Length : ", restaurantData.length);
+    //   return <h1>Loading...</h1>;
+    // }
   }
 
-  return (
+  // if (restaurantData.length === 0) {
+  //   console.log("Restaurant Data Length : ", restaurantData.length);
+  //   return <h1>Loading...</h1>;//We can also load any component here like shimmer
+  // }
+
+  return restaurantData.length === 0 ? (
+    <h1>Loading....</h1>
+  ) : (
     <div>
       <button onClick={handleClick} className="filter-button">
         Top Rated Restaurant
       </button>
+
       <div className="card">
         <Card resData={restaurantData}></Card>
       </div>
