@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
+import { LOGO_URL } from "../mock/constant";
 
 const NavBar = () => {
   const [btnName, setBtnName] = useState("Login");
@@ -10,7 +11,8 @@ const NavBar = () => {
         <img
           className="swiggy-logo"
           alt="swiggy-logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/1/13/Swiggy_logo.png"
+          src={`${LOGO_URL}`}
+          // src="https://upload.wikimedia.org/wikipedia/commons/1/13/Swiggy_logo.png"
         ></img>
       </div>
       <div className="header-side-list-container">

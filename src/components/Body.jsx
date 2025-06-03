@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
-
+import { FETCH_URL } from "../mock/constant";
 const Body = () => {
   const [restaurantData, setListOfRestaurant] = useState([]);
 
@@ -19,9 +19,7 @@ const Body = () => {
   }, []);
   // https://corsproxy.io/?url=https://example.com
   async function fetchData() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9615398&lng=79.2961468&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
+    const data = await fetch(FETCH_URL);
 
     //" https://corsproxy.io/?url="https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9615398&lng=79.2961468&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
 
