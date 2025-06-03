@@ -19,5 +19,8 @@
   "description": "",
   "devDependencies": {
     "parcel": "^2.15.0"
+  },
+  "dependencies": {
+    "react-router-dom": "^7.6.1"
   }
 }

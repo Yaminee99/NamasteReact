@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router";
 
 const NavBar = () => {
   const [btnName, setBtnName] = useState("Login");
@@ -13,10 +14,23 @@ const NavBar = () => {
         ></img>
       </div>
       <div className="header-side-list-container">
-        <h2>About</h2>
-        <h2>Cart</h2>
-        <h2>Offers</h2>
-        <h2>Cart</h2>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            {/* <a href="/about">About</a> */}
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            {/* <a href="/contact">Contact</a> */}
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            {/* <a href="/cart">Cart</a> */}
+            <Link to="/cart">Cart</Link>
+          </li>
+        </ul>
       </div>
       <div>
         <button
