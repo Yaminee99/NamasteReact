@@ -11,7 +11,6 @@ const Body = () => {
   const handleClick = () => {
     const filterData = restaurantData.filter((res) => res?.info?.avgRating > 4);
     setFilteredData(filterData);
-    console.log(filterData);
   };
 
   useEffect(() => {
@@ -21,19 +20,11 @@ const Body = () => {
   async function fetchData() {
     const data = await fetch(FETCH_URL);
 
-    //" https://corsproxy.io/?url="https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.9615398&lng=79.2961468&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-
-    console.log(data);
     const jsonData = await data.json();
-    console.log(jsonData);
-
-    console.log("JSON Data : ", jsonData?.data?.cards);
 
     let json =
       jsonData?.data.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
-
-    console.log("JSON : ", json);
 
     setListOfRestaurant(json);
     setFilteredData(json);
@@ -59,23 +50,18 @@ const Body = () => {
           type="text"
           value={searchText}
           onChange={(e) => {
-            console.log(e.target.value);
             setSearchText(e.target.value);
           }}
         ></input>
         <button
           className="search-button"
           onClick={() => {
-            console.log(searchText, "SearchText");
             const filterData = restaurantData.filter((data) => {
-              console.log(data?.info?.name, "Data");
               return data?.info?.name
                 .toLowerCase()
                 .includes(searchText.toLowerCase());
             });
             setFilteredData(filterData);
-
-            console.log(filterData, "Filtered Data ");
           }}
         >
           Search

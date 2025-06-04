@@ -4,8 +4,6 @@ import { RESTAURANT_MENU_URL } from "../mock/constant";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
-
-  console.log("Resid", resId);
   useEffect(() => {
     fetchData();
   }, []);
@@ -13,25 +11,13 @@ const RestaurantMenu = () => {
   const [menuData, setMenuData] = useState();
 
   async function fetchData() {
-    const data = await fetch(
-      RESTAURANT_MENU_URL + resId
-      //   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.99740&lng=79.00110&restaurantId=714836"
-    );
+    const data = await fetch(RESTAURANT_MENU_URL + resId);
 
     const jsonData = await data.json();
-    //jsonData.data.cards[2]
-    //jsonData.data.cards[5].groupedCard.cardGroupMap.REGULAR.cards
-    //jsonData.data.cards[5].groupedCard.cardGroupMap.REGULAR.cards[2].card.itemCards
-    //jsonData.data.cards[5].groupedCard.cardGroupMap.REGULAR.cards[2].card.itemCards[1].info.
-    // console.log(jsonData, "D");
-    //console.log("JSON DATA : ", jsonData.data.cards);
-    console.log("DATA : ", jsonData.data.cards[2].card.card.info);
+
     const items = jsonData?.data?.cards[2]?.card?.card?.info;
-    console.log(items);
     setMenuData(items);
   }
-
-  console.log("Menu Data", menuData);
 
   return (
     <>
@@ -43,7 +29,6 @@ const RestaurantMenu = () => {
           {menuData?.totalRatingsString})
         </h3>
 
-        {/* <h3>4.1(165 ratings) 250 for two</h3> */}
         <p className="bakeryTitle">{menuData?.cuisines.join(",")}</p>
         <p className="outlet">
           Outlet <span className="locality">{menuData?.areaName}</span>

@@ -17,8 +17,6 @@ const App = () => {
       <NavBar></NavBar>
       <Outlet></Outlet>
       <Footer></Footer>
-      {/* <Body></Body>
-      <Footer></Footer> */}
     </div>
   );
 };
