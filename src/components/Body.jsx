@@ -54,7 +54,7 @@ const Body = () => {
           }}
         ></input>
         <button
-          className="search-button"
+          className="m-1"
           onClick={() => {
             const filterData = restaurantData.filter((data) => {
               return data?.info?.name
@@ -66,12 +66,12 @@ const Body = () => {
         >
           Search
         </button>
-        <button onClick={handleClick} className="filter-button">
+        <button onClick={handleClick} className="m-3">
           Top Rated Restaurant
         </button>
       </div>
 
-      <div className="card">
+      <div className="flex m-4 p-4">
         <Card resData={filteredData}></Card>
       </div>
     </div>

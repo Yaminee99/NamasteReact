@@ -15,7 +15,7 @@ const Card = ({ resData }) => {
     <>
       {resData.map((data, index) => {
         return (
-          <div className="cardContainer" key={data?.info?.id}>
+          <div className="w-100" key={data?.info?.id}>
             <Link key={data?.info?.id} to={"/restaurant/" + data?.info?.id}>
               <img
                 className="card-img"

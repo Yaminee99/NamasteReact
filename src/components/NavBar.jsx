@@ -11,37 +11,48 @@ const NavBar = () => {
   console.log("Online State in Navbar : ", onlineState);
 
   return (
-    <div className="header-container">
+    <div className="flex justify-between">
       <div className="swiggy-logo-container">
         <img
-          className="swiggy-logo"
+          className="w-20 rounded-4xl m-2"
           alt="swiggy-logo"
           src={`${LOGO_URL}`}
           // src="https://upload.wikimedia.org/wikipedia/commons/1/13/Swiggy_logo.png"
         ></img>
       </div>
-      <div className="header-side-list-container">
-        <ul>
-          <li>{onlineState === "true" ? "🟢" : "🔴"}</li>
-          <li>
+      <div className="flex">
+        <ul className="flex m-2 p-2">
+          <li className="p-2">{onlineState === "true" ? "🟢" : "🔴"}</li>
+          <li className="p-2">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="p-2">
             <Link to="/about">About</Link>
           </li>
-          <li>
+          <li className="p-2">
             <Link to="/contact">Contact</Link>
           </li>
-          <li>
+          <li className="p-2">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li>
+          <li className="p-2">
             {/* <a href="/cart">Cart</a> */}
             <Link to="/cart">Cart</Link>
           </li>
         </ul>
+
+        <div>
+          <button
+            className="p-2"
+            onClick={() => {
+              setBtnName("LogOut");
+            }}
+          >
+            {btnName}
+          </button>
+        </div>
       </div>
-      <div>
+      {/* <div>
         <button
           className="loginBtn"
           onClick={() => {
@@ -50,7 +61,7 @@ const NavBar = () => {
         >
           {btnName}
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
