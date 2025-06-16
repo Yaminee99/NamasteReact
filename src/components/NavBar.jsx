@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
 import { LOGO_URL } from "../mock/constant";
+import useOnlineStatus from "../mock/useOnlineStatus";
 
 const NavBar = () => {
   const [btnName, setBtnName] = useState("Login");
+
+  const onlineState = useOnlineStatus();
+
+  console.log("Online State in Navbar : ", onlineState);
 
   return (
     <div className="header-container">
@@ -17,6 +22,7 @@ const NavBar = () => {
       </div>
       <div className="header-side-list-container">
         <ul>
+          <li>{onlineState === "true" ? "🟢" : "🔴"}</li>
           <li>
             <Link to="/">Home</Link>
           </li>
