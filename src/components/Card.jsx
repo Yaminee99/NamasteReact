@@ -1,8 +1,16 @@
 import React from "react";
 import { IMG_URL } from "../mock/constant";
 import { Link } from "react-router";
+import useOnlineStatus from "../mock/useOnlineStatus";
 
 const Card = ({ resData }) => {
+  const onlineState = useOnlineStatus();
+
+  console.log("onlineState in card : ", onlineState);
+
+  if (!onlineState || onlineState === false) {
+    return <h1>Please check your connection</h1>;
+  }
   return (
     <>
       {resData.map((data, index) => {
